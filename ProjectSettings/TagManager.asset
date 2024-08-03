@@ -7,6 +7,7 @@ TagManager:
   - Projectile
   - balls
   - floor
+  - blokjes
   layers:
   - Default
   - TransparentFX
