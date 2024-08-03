@@ -4,16 +4,15 @@ using System.Collections;
     using System.Diagnostics.Tracing;
     using UnityEditor;
     using UnityEngine;
-    using UnityEngine.InputSystem;
+using UnityEngine.Events;
+using UnityEngine.InputSystem;
 
     public class CatapultBehavior : MonoBehaviour
     {   
         [SerializeField] private float _baseStrength = 1.0f;
         [SerializeField] private float _mouseSense = 0.3f;
-        [SerializeField] private int _numProjectiles = 5;
         [SerializeField] private Transform _ProjectileSpawn;
         [SerializeField] private GameObject _Projectile;
-    
 
         private Vector3 _launchVelocity = Vector3.zero;
         private Vector2 _StartMousePos;
@@ -26,17 +25,20 @@ using System.Collections;
 
         private void FireProjectile()
         {
-            GameObject spawnedProjectile = Instantiate(_Projectile, _ProjectileSpawn);
-            spawnedProjectile.transform.SetParent(null, true);
-
-
-            Rigidbody spawnedRigidbody = spawnedProjectile.GetComponent<Rigidbody>();
-
-            if (spawnedRigidbody != null)
+            if (GameManager.Instance.CurrentProjectile == null)
             {
-                spawnedRigidbody.AddForce(gameObject.transform.forward * (-1*_MousePosDelta.y) * _baseStrength);
-            }
+                GameObject spawnedProjectile = Instantiate(_Projectile, _ProjectileSpawn);
+                spawnedProjectile.transform.SetParent(null, true);
+                GameManager.Instance.CurrentProjectile = spawnedProjectile;
 
+                Rigidbody spawnedRigidbody = spawnedProjectile.GetComponent<Rigidbody>();
+
+                if (spawnedRigidbody != null)
+                {
+                    spawnedRigidbody.AddForce(gameObject.transform.forward * (-1 * _MousePosDelta.y) * _baseStrength);
+                }
+
+            }
             //Debug.Log(_MousePosDelta);
             _MousePosDelta = Vector2.zero;
             _IsCharging = false;
@@ -86,15 +88,8 @@ using System.Collections;
 
         }
 
-        // Start is called before the first frame update
-        void Start()
-        {
-
-        
-        }
-
         // Update is called once per frame
-        void Update()
+        private void Update()
         {
             Aim();        
         }
