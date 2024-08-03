@@ -318,13 +318,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Level_5
       objectReference: {fileID: 0}
-    - target: {fileID: 8243819557719093103, guid: fd21769e37d4706469679114cedebc39,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 2931636576672697635, guid: fd21769e37d4706469679114cedebc39, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd21769e37d4706469679114cedebc39, type: 3}
@@ -918,6 +914,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 763469260}
   m_CullTransparentMesh: 1
+--- !u!4 &793751115 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 690828881272805466, guid: 3197886bb1c9cab4d8265938252ac7ba,
+    type: 3}
+  m_PrefabInstance: {fileID: 1498861638}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &849022800 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1147207073067084811, guid: e55e7bfdc8028204ba631f6ec5be69c5,
@@ -1330,11 +1332,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Level_1
       objectReference: {fileID: 0}
-    - target: {fileID: 4980100990149744260, guid: c358c3fb99c47c24ea3e0ba0293bf5b5,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5020564992686974577, guid: c358c3fb99c47c24ea3e0ba0293bf5b5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1396,7 +1393,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1747990998}
     m_Modifications:
     - target: {fileID: 206463654448120544, guid: 3197886bb1c9cab4d8265938252ac7ba,
         type: 3}
@@ -1426,7 +1423,7 @@ PrefabInstance:
     - target: {fileID: 690828881272805466, guid: 3197886bb1c9cab4d8265938252ac7ba,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 690828881272805466, guid: 3197886bb1c9cab4d8265938252ac7ba,
         type: 3}
@@ -1452,6 +1449,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1295669397828335796, guid: 3197886bb1c9cab4d8265938252ac7ba,
+        type: 3}
+      propertyPath: fractureOptions.fragmentCount
+      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1877,7 +1879,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1747990998
 Transform:
   m_ObjectHideFlags: 0
@@ -1890,7 +1892,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 793751115}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1788716181
@@ -2170,11 +2173,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Level_2
       objectReference: {fileID: 0}
-    - target: {fileID: 1485248042201983803, guid: 922cc47a20f13a94286d6bfece42ba84,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6510746681370674180, guid: 922cc47a20f13a94286d6bfece42ba84,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2299,7 +2297,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 9127336754031985233, guid: ed969eba5720326448ec51f8abcd9844, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed969eba5720326448ec51f8abcd9844, type: 3}
@@ -2315,11 +2314,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Level_3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5103786902049982101, guid: 205f67793c4074c439e5f0b08440f950,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5279754833165142964, guid: 205f67793c4074c439e5f0b08440f950,
         type: 3}
@@ -2391,4 +2385,3 @@ SceneRoots:
   - {fileID: 5916694534526699005}
   - {fileID: 5571827992772058674}
   - {fileID: 114615458}
-  - {fileID: 1498861638}
