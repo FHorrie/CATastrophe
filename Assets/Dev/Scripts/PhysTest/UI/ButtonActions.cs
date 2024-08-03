@@ -7,8 +7,7 @@ public class ButtonActions : MonoBehaviour
 {
     public void OpenLevel(string levelName)
     {
-        SceneManager.LoadScene("Game");
-        SceneManager.LoadScene(levelName, LoadSceneMode.Additive);
+        SceneManager.LoadScene(levelName);
     }
 
     public void QuitGame()
