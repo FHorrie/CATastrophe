@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics.Tracing;
+using Unity.Services.Analytics;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -32,7 +33,7 @@ public class CatapultBehavior : MonoBehaviour
         {
             _launchVelocity.x = _baseStrength * Mathf.Cos(_hAngle) * Mathf.Cos(_vAngle);
             _launchVelocity.y = _baseStrength * Mathf.Sin(_hAngle);
-            _launchVelocity.z = _baseStrength * Mathf.Cos(_hAngle) * Mathf.Sin(_vAngle);
+            _launchVelocity.z = _baseStrength * Mathf.Cos(_hAngle) * Mathf.Sin(_vAngle); 
             //spawnedRigidbody.AddForce()
         }
 
@@ -44,7 +45,7 @@ public class CatapultBehavior : MonoBehaviour
 
     private void OnCatapultTrigger()
     {
-        if (!_IsCharging)
+        if(!_IsCharging)
         {
             _StartMousePos = Input.mousePosition;
             _IsCharging = true;
