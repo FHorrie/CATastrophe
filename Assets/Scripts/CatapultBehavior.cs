@@ -14,10 +14,6 @@ using UnityEngine.InputSystem;
         [SerializeField] private Transform _ProjectileSpawn;
         [SerializeField] private GameObject _Projectile;
 
-    
-        private Vector2 _StartMousePos;
-        private Vector2 _MousePosDelta = Vector2.zero;
-
     private Vector3 _launchVelocity = Vector3.zero;
     private Vector2 _StartMousePos;
     private Vector2 _MousePosDelta = Vector2.zero;

@@ -160,7 +160,7 @@ MonoBehaviour:
     - floor
     triggerKey: 0
   fractureOptions:
-    fragmentCount: 5
+    fragmentCount: 50
     xAxis: 1
     yAxis: 1
     zAxis: 1
