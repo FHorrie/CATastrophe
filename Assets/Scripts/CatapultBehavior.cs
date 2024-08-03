@@ -26,7 +26,7 @@ public class CatapultBehavior : MonoBehaviour
     private void FireProjectile()
     {
         GameObject spawnedProjectile = Instantiate(_Projectile, _ProjectileSpawn);
-        
+
         Rigidbody spawnedRigidbody = spawnedProjectile.GetComponent<Rigidbody>();
 
         if (spawnedRigidbody != null)
@@ -53,7 +53,6 @@ public class CatapultBehavior : MonoBehaviour
         else
             FireProjectile();
     }
-
     private void Aim()
     {
         if (_IsCharging)
@@ -77,12 +76,12 @@ public class CatapultBehavior : MonoBehaviour
     void Start()
     {
 
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        Aim();        
+        Aim();
     }
 }
