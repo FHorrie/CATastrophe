@@ -1,0 +1,34 @@
+{
+    "name": "fuckthisshit",
+    "maps": [
+        {
+            "name": "GamePlay",
+            "id": "e3d9c871-948d-463f-9ccf-1d0e741e36c9",
+            "actions": [
+                {
+                    "name": "CatapultTrigger",
+                    "type": "Button",
+                    "id": "fd7057e1-1142-4da3-9eba-e3d1949a8215",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "8d74f40a-133d-41f3-b590-30767642f038",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "Press(behavior=2)",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CatapultTrigger",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
