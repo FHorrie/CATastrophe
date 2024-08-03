@@ -154,7 +154,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   triggerOptions:
     triggerType: 0
-    minimumCollisionForce: 10
+    minimumCollisionForce: 100
     filterCollisionsByTag: 1
     triggerAllowedTags:
     - blokjes
@@ -162,7 +162,7 @@ MonoBehaviour:
     - floor
     triggerKey: 0
   fractureOptions:
-    fragmentCount: 10
+    fragmentCount: 5
     xAxis: 1
     yAxis: 1
     zAxis: 1
