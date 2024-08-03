@@ -6,14 +6,17 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class CatapultBehavior : MonoBehaviour
-{   
-    [SerializeField] private float _baseStrength = 1.0f;
-    [SerializeField] private float _mouseSense = 0.3f;
-    [SerializeField] private int _numProjectiles = 5;
-    [SerializeField] private Transform _ProjectileSpawn;
-    [SerializeField] private GameObject _Projectile;
+    public class CatapultBehavior : MonoBehaviour
+    {   
+        [SerializeField] private float _baseStrength = 1.0f;
+        [SerializeField] private float _mouseSense = 0.3f;
+        [SerializeField] private int _numProjectiles = 5;
+        [SerializeField] private Transform _ProjectileSpawn;
+        [SerializeField] private GameObject _Projectile;
 
+    
+        private Vector2 _StartMousePos;
+        private Vector2 _MousePosDelta = Vector2.zero;
 
     private Vector3 _launchVelocity = Vector3.zero;
     private Vector2 _StartMousePos;
