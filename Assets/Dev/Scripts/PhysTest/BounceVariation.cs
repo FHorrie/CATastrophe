@@ -14,11 +14,11 @@ public class BounceVariation : MonoBehaviour
 
     private void Start()
     {
-        m_RigidBody.AddForce(0, -15, 0, ForceMode.Impulse);
+        //m_RigidBody.AddForce(0, -15, 0, ForceMode.Impulse);
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        m_RigidBody.AddForce(Random.insideUnitCircle.x * m_BounceForce, 0, Random.insideUnitCircle.y * m_BounceForce, ForceMode.Impulse);
+        m_RigidBody.AddRelativeForce(Random.insideUnitCircle.x * m_BounceForce, 0, Random.insideUnitCircle.y * m_BounceForce, ForceMode.Impulse);
     }
 }
