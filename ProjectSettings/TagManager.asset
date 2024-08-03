@@ -5,15 +5,17 @@ TagManager:
   serializedVersion: 2
   tags:
   - Projectile
-  - EnemyBlock
+  - balls
+  - floor
+  - blokjes
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - StaticLevel
+  - 
   - Water
   - UI
-  - Killzone
+  - 
   - 
   - 
   - 
