@@ -30,7 +30,7 @@ using System.Collections;
         private float _CatapultChargeTimer = 0.0f;
         private bool _CatapultChargeDirection = true;
 
-    public bool canMove = false;
+    public bool canMove = true;
     
         private Vector2 _StartMousePos;
         private Vector2 _MousePosDelta = Vector2.zero;

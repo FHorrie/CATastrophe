@@ -10,7 +10,7 @@ public class TrainBehavior : MonoBehaviour
     [SerializeField] private float _maxTrainSpeed = 100.0f;
     [SerializeField] private InputActionReference _TrainMovementAction;
 
-    public bool canMove = false;
+    public bool canMove = true;
 
     private float _currentTrainSpeed = 0.0f;
     private float _currentRotationAngle = 0.0f;

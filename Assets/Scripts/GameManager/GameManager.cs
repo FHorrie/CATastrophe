@@ -70,6 +70,8 @@ public class GameManager : Singleton<GameManager>
         }
     }
 
+    private bool doOnce;
+
     public void LoadLevel(int levelIndex)
     {
         if (levelIndex >= Levels.Count)
