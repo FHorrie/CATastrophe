@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 using UnityEngine.SceneManagement;
 using static GameManager;
 using Random = UnityEngine.Random;
@@ -33,6 +34,8 @@ public class GameManager : Singleton<GameManager>
     private const int m_MaxCats = 6;
     private GameObject m_CurrentProjectile = null;
 
+    private bool shouldLoadNextLevel = false;
+
     public List<CatType> Cats
     {
         get { return m_Cats; }
@@ -61,22 +64,28 @@ public class GameManager : Singleton<GameManager>
     private int CurrentIndex = 0;
     private int CurrentFish;
 
-    private void Start() {
-        Default(); //TODO: remove
-    }
-
-
     public void HandleFishMurder()
     {
         --CurrentFish;
         if (CurrentFish <= 0)
         {
             ++CurrentIndex;
-            LoadLevel(CurrentIndex);
+            shouldLoadNextLevel = true;
+            // LoadLevel(CurrentIndex);
         }
     }
 
     private bool doOnce;
+
+    public void ReloadLevel()
+    {
+        if (CurrentLevel != null)
+        {
+            Destroy(CurrentLevel);
+        }
+        CurrentFish = Levels[CurrentIndex].numFish;
+        CurrentLevel = Instantiate(Levels[CurrentIndex].gameObject);
+    }
 
     public void LoadLevel(int levelIndex)
     {
@@ -113,6 +122,11 @@ public class GameManager : Singleton<GameManager>
     private void Update() {
         if (Cats.Count == 0 && CurrentProjectile == null) {
             SceneManager.LoadScene("Scenes/LooseScene");
+        }
+        if (shouldLoadNextLevel && GameManager.Instance.CurrentProjectile == null)
+        {
+            shouldLoadNextLevel = false;
+            LoadLevel(CurrentIndex);
         }
     }
 

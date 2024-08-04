@@ -11,6 +11,11 @@ public class ButtonActions : MonoBehaviour
         GameManager.Instance.Default();
     }
 
+    public void Reset()
+    {
+        GameManager.Instance.ReloadLevel();
+    }
+
     public void QuitGame()
     {
 #if UNITY_STANDALONE
