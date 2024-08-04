@@ -95,6 +95,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 7071693462579677355}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 307db273cbf262f4b90e9331b72579a6,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3353001820763139335}
   m_SourcePrefab: {fileID: 100100000, guid: 307db273cbf262f4b90e9331b72579a6, type: 3}
 --- !u!1 &560545024337035189 stripped
 GameObject:
@@ -192,5 +196,31 @@ MonoBehaviour:
         m_Calls: []
     onCompleted:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 3353001820763139335}
+          m_TargetAssemblyTypeName: SpawnSoundByte, Assembly-CSharp
+          m_MethodName: SpawnSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   currentRefractureCount: 0
+--- !u!114 &3353001820763139335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 560545024337035189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86a090f88fb1d994ba629de75e96c0d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _soundTemplate: {fileID: 337753938558877401, guid: 8132a6e928380cf4885f7083a63205d4,
+    type: 3}
