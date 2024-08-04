@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: -8416219281189825837}
   m_Layer: 0
   m_Name: Fish
-  m_TagString: Untagged
+  m_TagString: blokjes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -66,7 +66,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 91a180e19a452604cb5c68709ef67ebd, type: 2}
+  - {fileID: 2100000, guid: 375f941f5dedb7d46b240488a3821cfa, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
