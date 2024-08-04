@@ -7,6 +7,7 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private GameObject _pauseMenu;
     [SerializeField] private GameObject _catapult;
     [SerializeField] private GameObject _train;
+    [SerializeField] private GameObject _optionsMenu;
 
     private bool _paused;
 
@@ -56,5 +57,7 @@ public class PauseMenu : MonoBehaviour
 
         var train = _train.GetComponent<TrainBehavior>();
         train.canMove = true;
+        
+        _optionsMenu.SetActive(false);
     }
 }

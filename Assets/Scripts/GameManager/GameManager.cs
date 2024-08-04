@@ -30,7 +30,7 @@ public class GameManager : Singleton<GameManager>
         Momcat
     }
 
-    private List<CatType> m_Cats = null;
+    private List<CatType> m_Cats = new List<CatType>();
     private const int m_MaxCats = 6;
     private GameObject m_CurrentProjectile = null;
 
@@ -63,6 +63,8 @@ public class GameManager : Singleton<GameManager>
     private GameObject CurrentLevel;
     private int CurrentIndex = 0;
     private int CurrentFish;
+    
+    public float volume = 1f;
 
     public void HandleFishMurder()
     {
@@ -133,7 +135,20 @@ public class GameManager : Singleton<GameManager>
             LoadLevel(CurrentIndex);
         }
     }
-
+    
+    public void SetVolume(float volume)
+    {
+        this.volume = volume;
+        //Get the main camera with the tag
+        GameObject mainCamera = GameObject.FindGameObjectsWithTag("MainCamera")[0];
+        //Get the audio listener
+        var audioListener = mainCamera.GetComponent<AudioListener>();
+        //Set the volume
+        float newVol = AudioListener.volume;
+        newVol = volume;
+        AudioListener.volume = newVol;
+    }
+    
 
     public void updatePreviewNodes() {
         foreach (var cat in m_Cats)
@@ -163,5 +178,6 @@ public class GameManager : Singleton<GameManager>
         }
 
         updatePreviewNodes();
+        SetVolume(this.volume);
     }
 }
