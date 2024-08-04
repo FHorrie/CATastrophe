@@ -190,8 +190,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 975ed2ec94b0e12488884ff6901946dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _explosion: {fileID: 919132149155446097, guid: f9703daed9a6d7f488ce3c7ffb7bfe92,
-    type: 3}
+  _explosion: {fileID: 1056904543853562, guid: 4cf45cdce36e66e4a93614abb5ae7821, type: 3}
   _explosionRadius: 7
   _explosionForce: 120
 --- !u!114 &8855651517094157128
