@@ -76,8 +76,9 @@ public class GameManager : Singleton<GameManager>
     {
         if (levelIndex >= Levels.Count)
         {
+            //Show the win screen
+            SceneManager.LoadScene("WinScene");
             levelIndex = 0;
-            SceneManager.LoadScene("MainMenu");
         }
 
         if (CurrentLevel != null)
