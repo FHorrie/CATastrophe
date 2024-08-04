@@ -50,12 +50,12 @@ public class TrainBehavior : MonoBehaviour
         {
             if (_currentTrainSpeed > 1.5f)
             {
-                _currentTrainSpeed -= _trainSpeedMultiplier * _currentInputValue * Time.deltaTime * 2;
+                _currentTrainSpeed -= _trainSpeedMultiplier * Time.deltaTime * 2;
                 _currentTrainSpeed = Mathf.Max(1.5f, _currentTrainSpeed);
             }
             else if (_currentTrainSpeed < -1.5f)
             {
-                _currentTrainSpeed -= _trainSpeedMultiplier * _currentInputValue * Time.deltaTime * 2;
+                _currentTrainSpeed += _trainSpeedMultiplier * Time.deltaTime * 2;
                 _currentTrainSpeed = Mathf.Min(-1.5f, _currentTrainSpeed);
             }
             else
