@@ -64,10 +64,6 @@ public class GameManager : Singleton<GameManager>
     private int CurrentIndex = 0;
     private int CurrentFish;
 
-    private void Start() {
-        Default(); //TODO: remove
-    }
-
     public void HandleFishMurder()
     {
         --CurrentFish;
@@ -81,7 +77,17 @@ public class GameManager : Singleton<GameManager>
 
     private bool doOnce;
 
-    public void  LoadLevel(int levelIndex)
+    public void ReloadLevel()
+    {
+        if (CurrentLevel != null)
+        {
+            Destroy(CurrentLevel);
+        }
+        CurrentFish = Levels[CurrentIndex].numFish;
+        CurrentLevel = Instantiate(Levels[CurrentIndex].gameObject);
+    }
+
+    public void LoadLevel(int levelIndex)
     {
         if (levelIndex >= Levels.Count)
         {
