@@ -39,15 +39,21 @@ using System.Collections;
 
         private void FireProjectile()
         {
-            GameObject spawnedProjectile = Instantiate(_Projectile, _ProjectileSpawn);
-            spawnedProjectile.transform.SetParent(null, true);
 
-
-            Rigidbody spawnedRigidbody = spawnedProjectile.GetComponent<Rigidbody>();
-
-            if (spawnedRigidbody != null)
+            if (GameManager.Instance.CurrentProjectile == null)
             {
-                spawnedRigidbody.AddForce(gameObject.transform.forward * (_CatapultCharge * _SenditMultiplier) * _baseStrength);
+                GameObject spawnedProjectile = Instantiate(_Projectile, _ProjectileSpawn);
+                spawnedProjectile.transform.SetParent(null, true);
+
+                GameManager.Instance.CurrentProjectile = spawnedProjectile;
+
+
+                Rigidbody spawnedRigidbody = spawnedProjectile.GetComponent<Rigidbody>();
+
+                if (spawnedRigidbody != null)
+                {
+                    spawnedRigidbody.AddForce(gameObject.transform.forward * (_CatapultCharge * _SenditMultiplier) * _baseStrength);
+                }
             }
 
             //Debug.Log(_MousePosDelta);
@@ -67,17 +73,19 @@ using System.Collections;
         {
             if(!_IsCharging)
             {
-                _LineRenderer.enabled = true;
+                if(_LineRenderer != null)
+                    _LineRenderer.enabled = true;
                 _StartMousePos = Input.mousePosition;
                 _IsCharging = true;
                 _CatapultAnimator.SetTrigger("Start Pull");
                 Debug.Log("Started Pulling");
             }
             else {
+                if(_LineRenderer != null)
+                    _LineRenderer.enabled = false;
                 //Set "EndPull" trigger in animator
                 _CatapultAnimator.SetTrigger("Release");
                 FireProjectile();
-                _LineRenderer.enabled = false;
             }
 
         }
