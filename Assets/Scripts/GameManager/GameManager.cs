@@ -14,8 +14,9 @@ public class GameManager : Singleton<GameManager>
 
     private List<CatType> m_Cats = null;
     private const int m_MaxCats = 6;
+    private GameObject m_CurrentProjectile = null;
 
-    List<CatType> Cats
+    public List<CatType> Cats
     {
         get { return m_Cats; }
         set
@@ -30,5 +31,11 @@ public class GameManager : Singleton<GameManager>
                 m_Cats = value;
 
         }
+    }
+
+    public GameObject CurrentProjectile 
+    { 
+        get { return m_CurrentProjectile; } 
+        set { m_CurrentProjectile = value; }
     }
 }
