@@ -89,6 +89,7 @@ public class GameManager : Singleton<GameManager>
 
     public void LoadLevel(int levelIndex)
     {
+        checkGame = true;
         if (levelIndex >= Levels.Count)
         {
             //Show the win screen
@@ -119,8 +120,11 @@ public class GameManager : Singleton<GameManager>
         }
     }
 
+    public bool checkGame;
+
     private void Update() {
-        if (Cats.Count == 0 && CurrentProjectile == null) {
+        if (Cats.Count == 0 && CurrentProjectile == null && checkGame) {
+            checkGame = false;
             SceneManager.LoadScene("Scenes/LooseScene");
         }
         if (shouldLoadNextLevel && GameManager.Instance.CurrentProjectile == null)
