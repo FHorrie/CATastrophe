@@ -22,6 +22,9 @@ using System.Collections;
         [SerializeField] private Animator _CatapultAnimator;
         [Header("Slider field uwu")]
         [SerializeField] private GameObject _CatapultSlider;
+
+        [SerializeField] private GameObject[] _CatapultPossibleCats;
+        
         private Slider _CatapultSliderComponent;
         
         private LineRenderer _LineRenderer;
@@ -46,7 +49,15 @@ using System.Collections;
 
             if (GameManager.Instance.CurrentProjectile == null)
             {
-                GameObject spawnedProjectile = Instantiate(_Projectile, _ProjectileSpawn);
+                //Ask the gamemanager for the 0th element in the cat list
+                GameManager.CatType currentCat = GameManager.Instance.Cats[0];
+                
+                GameObject spawnedProjectile = Instantiate(_CatapultPossibleCats[(int)currentCat], _ProjectileSpawn);
+                
+                GameManager.Instance.Cats.RemoveAt(0);
+                
+                GameManager.Instance.updatePreviewNodes();
+                
                 spawnedProjectile.transform.SetParent(null, true);
 
                 GameManager.Instance.CurrentProjectile = spawnedProjectile;

@@ -28,8 +28,16 @@ public class CatPreviewNodeScript : MonoBehaviour
         // }
     }
     
-    public void SetCat(GameManager.CatType cat) {
+    public void SetCat(GameManager.CatType? cat) {
         Debug.Log("Setting cat: " + cat + " My index is " + m_NodeIndex);
+
+        if (cat == null) {
+            for (int i = 0; i < m_PossibleCats.Length; i++) {
+                m_PossibleCats[i].SetActive(false);
+            }
+
+            return;
+        }
         m_CurrentCat = cat;
         m_PossibleCats[(int)cat].SetActive(true);
         //Set the other cats to false

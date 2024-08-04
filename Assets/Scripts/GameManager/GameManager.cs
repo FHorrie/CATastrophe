@@ -110,6 +110,31 @@ public class GameManager : Singleton<GameManager>
         }
     }
 
+    private void Update() {
+        if (Cats.Count == 0 && CurrentProjectile == null) {
+            SceneManager.LoadScene("Scenes/LooseScene");
+        }
+    }
+
+
+    public void updatePreviewNodes() {
+        foreach (var cat in m_Cats)
+        {
+            Debug.Log(cat);
+        }
+        var temp = GameObject.FindGameObjectsWithTag("catNode");
+        //Sort based on Node Index on the script
+        for (var i = 0; i < temp.Length; i++) {
+            try {
+                CatType? cat = m_Cats[temp[i].GetComponent<CatPreviewNodeScript>().m_NodeIndex] as CatType?;
+                temp[i].GetComponent<CatPreviewNodeScript>().SetCat(cat);
+            }
+            catch (Exception e) {
+                temp[i].GetComponent<CatPreviewNodeScript>().SetCat(null);
+            }
+        }
+    }
+
     public void Default()
     {
         CurrentIndex = 0;
@@ -118,15 +143,7 @@ public class GameManager : Singleton<GameManager>
         {
             m_Cats.Add((CatType)Random.Range(0, 4));
         }
-        
-        foreach (var cat in m_Cats)
-        {
-            Debug.Log(cat);
-        }
-        var temp = GameObject.FindGameObjectsWithTag("catNode");
-        //Sort based on Node Index on the script
-        for (var i = 0; i < temp.Length; i++) {
-            temp[i].GetComponent<CatPreviewNodeScript>().SetCat(m_Cats[temp[i].GetComponent<CatPreviewNodeScript>().m_NodeIndex]);
-        }
+
+        updatePreviewNodes();
     }
 }
