@@ -30,7 +30,7 @@ using System.Collections;
         private float _CatapultChargeTimer = 0.0f;
         private bool _CatapultChargeDirection = true;
 
-
+    public bool canMove = false;
     
         private Vector2 _StartMousePos;
         private Vector2 _MousePosDelta = Vector2.zero;
@@ -188,6 +188,9 @@ using System.Collections;
         // Update is called once per frame
         void Update()
         {
-            Aim();       
+            if (canMove)
+            { 
+                Aim();       
+            }
         }
     }

@@ -10,6 +10,8 @@ public class TrainBehavior : MonoBehaviour
     [SerializeField] private float _maxTrainSpeed = 100.0f;
     [SerializeField] private InputActionReference _TrainMovementAction;
 
+    public bool canMove = false;
+
     private float _currentTrainSpeed = 0.0f;
     private float _currentRotationAngle = 0.0f;
     private float _currentInputValue = 0.0f;
@@ -34,6 +36,11 @@ public class TrainBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!canMove)
+        {
+            return;
+        }
+
         if (_pressed)
         {
             _currentTrainSpeed += _trainSpeedMultiplier * _currentInputValue * Time.deltaTime * 1.5f;
