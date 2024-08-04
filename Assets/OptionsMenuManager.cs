@@ -25,6 +25,7 @@ public class OptionsMenuManager : MonoBehaviour
     public void SetFullscreen(bool isFullscreen)
     {
         Debug.Log(isFullscreen);
-        Screen.fullScreen = isFullscreen;
+        if( isFullscreen ) Screen.fullScreenMode = FullScreenMode.ExclusiveFullScreen;
+        else Screen.fullScreenMode = FullScreenMode.Windowed;
     }
 }
