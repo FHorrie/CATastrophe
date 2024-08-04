@@ -5,6 +5,7 @@ using System.Collections;
     using UnityEditor;
     using UnityEngine;
     using UnityEngine.InputSystem;
+    using UnityEngine.UI;
 
     public class CatapultBehavior : MonoBehaviour
     {   
@@ -17,8 +18,11 @@ using System.Collections;
         
         [SerializeField] private float _SenditMultiplier = 100.0f;
 
-        [Header("Catapult Blend")] [SerializeField]
-        private Animator _CatapultAnimator;
+        [Header("Catapult Blend")] 
+        [SerializeField] private Animator _CatapultAnimator;
+        [Header("Slider field uwu")]
+        [SerializeField] private GameObject _CatapultSlider;
+        private Slider _CatapultSliderComponent;
         
         private LineRenderer _LineRenderer;
 
@@ -119,6 +123,7 @@ using System.Collections;
                 //should be between 0 and 1
                 float animationValue = _CatapultCharge / _maxPullForce;
                 Debug.Log("Animation Value: " + animationValue);
+                _CatapultSliderComponent.value = animationValue;
                 _CatapultAnimator.SetFloat("Pull Force", animationValue);
                 
                 if(_LineRenderer != null)
@@ -167,6 +172,12 @@ using System.Collections;
                 _LineRenderer.endColor = transparentRed;
                 _LineRenderer.startWidth = .5f;
                 _LineRenderer.endWidth = 0f;
+            }
+            
+            _CatapultSliderComponent = _CatapultSlider.GetComponent<Slider>();
+            if(_CatapultSliderComponent == null)
+            {
+                Debug.LogError("Slider component is null");
             }
         }
 
