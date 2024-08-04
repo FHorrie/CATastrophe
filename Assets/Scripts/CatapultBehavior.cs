@@ -120,11 +120,15 @@ using System.Collections;
                 }
                 
                 
-                //should be between 0 and 1
-                float animationValue = _CatapultCharge / _maxPullForce;
-                Debug.Log("Animation Value: " + animationValue);
-                _CatapultSliderComponent.value = animationValue;
-                _CatapultAnimator.SetFloat("Pull Force", animationValue);
+                if(_CatapultSliderComponent)
+                {
+                    //should be between 0 and 1
+                    float animationValue = _CatapultCharge / _maxPullForce;
+                    Debug.Log("Animation Value: " + animationValue);
+                    _CatapultSliderComponent.value = animationValue;
+                    _CatapultAnimator.SetFloat("Pull Force", animationValue);
+                }
+
                 
                 if(_LineRenderer != null)
                 {

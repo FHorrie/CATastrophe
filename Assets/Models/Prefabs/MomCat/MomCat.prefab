@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3175076109559369049}
   - component: {fileID: 535361607653595303}
   - component: {fileID: 756338990005929900}
+  - component: {fileID: 6896078262940636779}
   m_Layer: 0
   m_Name: MomCat
   m_TagString: Projectile
@@ -131,6 +132,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _kitten: {fileID: 844597562091004552, guid: 637d5d82635a4b142a0784cc9de54711, type: 3}
   _numKittens: 5
+  _deadTime: 0
+--- !u!114 &6896078262940636779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8426133844364971693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecf858fb5df5e6945bea362d1462f2c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1336858367487154106
 PrefabInstance:
   m_ObjectHideFlags: 0
