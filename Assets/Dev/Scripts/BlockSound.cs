@@ -13,10 +13,11 @@ public class BlockSoundScript : MonoBehaviour
         m_AudioSource = GetComponent<AudioSource>();
     }
 
-    public void PlaySound()
+    private void Start()
     {
         int clipIdx = Random.Range(0, m_SoundClips.Length);
         m_AudioSource.clip = m_SoundClips[clipIdx];
         m_AudioSource.Play();
+        Debug.Log("Played sound");
     }
 }
