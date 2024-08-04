@@ -133,6 +133,7 @@ MonoBehaviour:
   _kitten: {fileID: 844597562091004552, guid: 637d5d82635a4b142a0784cc9de54711, type: 3}
   _numKittens: 5
   _deadTime: 0
+  _kittenSpeed: 5
 --- !u!114 &6896078262940636779
 MonoBehaviour:
   m_ObjectHideFlags: 0

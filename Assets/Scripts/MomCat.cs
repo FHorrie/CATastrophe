@@ -10,6 +10,7 @@ public class MomCat : MonoBehaviour
     [SerializeField] private GameObject _kitten;
     [SerializeField] private int _numKittens;
     [SerializeField] private float _deadTime;
+    [SerializeField] private int _kittenSpeed = 1;
 
     ProjectileData _projectileData;
     private void OnCatapultTrigger()
@@ -25,7 +26,7 @@ public class MomCat : MonoBehaviour
             Rigidbody motherBody = gameObject.GetComponent<Rigidbody>();
             if (rigidbody != null) 
             {
-                rigidbody.velocity = motherBody.velocity;
+                rigidbody.velocity = motherBody.velocity * _kittenSpeed;
             }
         }
 
