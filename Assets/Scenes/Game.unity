@@ -536,6 +536,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ROO MOFFICIAL OFFICAL
       objectReference: {fileID: 0}
+    - target: {fileID: 1147207073067084811, guid: e55e7bfdc8028204ba631f6ec5be69c5,
+        type: 3}
+      propertyPath: m_TagString
+      value: floor
+      objectReference: {fileID: 0}
     - target: {fileID: 3319239556798519955, guid: e55e7bfdc8028204ba631f6ec5be69c5,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
