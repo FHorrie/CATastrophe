@@ -33,6 +33,7 @@ public class PauseMenu : MonoBehaviour
         _pauseMenu.SetActive(true);
         _paused = true;
         Time.timeScale = .0f;
+        Cursor.visible = true;
     }
 
     public void ResumeGame()
@@ -40,5 +41,6 @@ public class PauseMenu : MonoBehaviour
         _pauseMenu.SetActive(false);
         _paused = false;
         Time.timeScale = 1.0f;
+        Cursor.visible = false;
     }
 }
