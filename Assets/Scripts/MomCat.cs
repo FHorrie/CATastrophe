@@ -43,7 +43,7 @@ public class MomCat : MonoBehaviour
         String tag = other.gameObject.tag;
         if (tag == "floor" || tag == "blokjes")
         {
-            Destroy(gameObject);
+            Destroy(gameObject,2.5f);
         }
     }
 
