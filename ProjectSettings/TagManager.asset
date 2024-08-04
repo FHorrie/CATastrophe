@@ -8,6 +8,7 @@ TagManager:
   - balls
   - floor
   - blokjes
+  - catNode
   layers:
   - Default
   - TransparentFX

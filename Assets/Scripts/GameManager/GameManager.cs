@@ -1,7 +1,9 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using static GameManager;
+using Random = UnityEngine.Random;
 
 [System.Serializable]
 public class Level
@@ -24,7 +26,6 @@ public class GameManager : Singleton<GameManager>
         Standard,
         Boom,
         Fat,
-        Bee,
         Momcat
     }
 
@@ -59,7 +60,12 @@ public class GameManager : Singleton<GameManager>
     private GameObject CurrentLevel;
     private int CurrentIndex = 0;
     private int CurrentFish;
-    
+
+    private void Start() {
+        Default(); //TODO: remove
+    }
+
+
     public void HandleFishMurder()
     {
         --CurrentFish;
@@ -87,10 +93,40 @@ public class GameManager : Singleton<GameManager>
         }
         CurrentFish = Levels[CurrentIndex].numFish;
         CurrentLevel = Instantiate(Levels[CurrentIndex].gameObject);
+        m_Cats = new List<CatType>();
+        for (int i = 0; i < m_MaxCats; i++)
+        {
+            m_Cats.Add((CatType)Random.Range(0, 4));
+        }
+        
+        foreach (var cat in m_Cats)
+        {
+            Debug.Log(cat);
+        }
+        var temp = GameObject.FindGameObjectsWithTag("catNode");
+        //Sort based on Node Index on the script
+        for (var i = 0; i < temp.Length; i++) {
+            temp[i].GetComponent<CatPreviewNodeScript>().SetCat(m_Cats[temp[i].GetComponent<CatPreviewNodeScript>().m_NodeIndex]);
+        }
     }
 
     public void Default()
     {
         CurrentIndex = 0;
+        m_Cats = new List<CatType>();
+        for (int i = 0; i < m_MaxCats; i++)
+        {
+            m_Cats.Add((CatType)Random.Range(0, 4));
+        }
+        
+        foreach (var cat in m_Cats)
+        {
+            Debug.Log(cat);
+        }
+        var temp = GameObject.FindGameObjectsWithTag("catNode");
+        //Sort based on Node Index on the script
+        for (var i = 0; i < temp.Length; i++) {
+            temp[i].GetComponent<CatPreviewNodeScript>().SetCat(m_Cats[temp[i].GetComponent<CatPreviewNodeScript>().m_NodeIndex]);
+        }
     }
 }
