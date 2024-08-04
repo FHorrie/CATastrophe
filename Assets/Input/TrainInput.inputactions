@@ -1,0 +1,56 @@
+{
+    "name": "TrainInput",
+    "maps": [
+        {
+            "name": "Gameplay",
+            "id": "568aac8c-9b85-4e01-9778-4ea607c89ba9",
+            "actions": [
+                {
+                    "name": "TrainMovement",
+                    "type": "Button",
+                    "id": "16640d70-6c3e-40e5-8755-17abf968d7e0",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press(pressPoint=1.401298E-45,behavior=2)",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "1D Axis",
+                    "id": "905ab7b2-d23c-4d3f-a87a-0d545f8c3fb0",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "TrainMovement",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "0395cd88-0ce1-490a-9852-646d7bd11c3f",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "TrainMovement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "9a15f718-d307-4741-bb3b-1fca6ca51478",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "TrainMovement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

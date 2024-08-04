@@ -37,7 +37,7 @@
                 {
                     "name": "",
                     "id": "f6bae6b4-6b52-4c2e-a707-8a6be8b4c14e",
-                    "path": "<Mouse>/leftButton",
+                    "path": "<Keyboard>/space",
                     "interactions": "Press(behavior=2)",
                     "processors": "",
                     "groups": "",
