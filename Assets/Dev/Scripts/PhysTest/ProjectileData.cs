@@ -10,6 +10,7 @@ public class ProjectileData : MonoBehaviour
     public bool HitPart
     { 
         get { return m_HitPart; }
+        set { m_HitPart = value; }
     }
 
     private void Start()

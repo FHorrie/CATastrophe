@@ -1,14 +1,17 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using UnityEngine;
 using UnityEngine.UIElements;
 
 public class MomCat : MonoBehaviour
 {
-    [SerializeField] GameObject _kitten;
-    [SerializeField] int _numKittens;
+    [SerializeField] private GameObject _kitten;
+    [SerializeField] private int _numKittens;
+    [SerializeField] private float _deadTime;
 
+    ProjectileData _projectileData;
     private void OnCatapultTrigger()
     {
         Vector3 _targetDir = Vector3.zero;
@@ -26,7 +29,13 @@ public class MomCat : MonoBehaviour
             }
         }
 
+        if(_projectileData != null)
+        {
+            _projectileData.HitPart = true;
+        }
+
         gameObject.SetActive(false);
+        Destroy(gameObject, 2.5f);
     }
 
     private void OnCollisionEnter(Collision other)
@@ -41,6 +50,7 @@ public class MomCat : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        _projectileData = GetComponent<ProjectileData>();
     }
 
     // Update is called once per frame
