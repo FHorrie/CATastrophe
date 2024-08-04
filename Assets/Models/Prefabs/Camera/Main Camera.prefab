@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4815206992495610078}
+  - component: {fileID: 7946775985141450773}
   - component: {fileID: 1956958933272253833}
   - component: {fileID: 6005580289684570809}
   - component: {fileID: 276263453864916427}
@@ -27,13 +28,27 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3560432616831831923}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.17150886, y: -0, z: -0, w: 0.9851826}
+  m_LocalRotation: {x: 0.17150779, y: 0, z: 0, w: 0.9851828}
   m_LocalPosition: {x: -0.01, y: 2.95, z: -12.43}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 19.751, y: 0, z: 0}
+--- !u!114 &7946775985141450773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3560432616831831923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b6a2f3d3f2d9bc479915e3193cc8f4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_CamDistance: 6
+  m_FallBackTargetTransform: {fileID: 0}
 --- !u!20 &1956958933272253833
 Camera:
   m_ObjectHideFlags: 0
