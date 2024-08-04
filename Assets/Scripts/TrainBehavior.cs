@@ -41,16 +41,18 @@ public class TrainBehavior : MonoBehaviour
         }
         else
         {
-            _currentTrainSpeed -= _trainSpeedMultiplier * _currentInputValue * Time.deltaTime * 2;
-
-
-            if (_currentTrainSpeed > 1.0f)
-                _currentTrainSpeed = Mathf.Max(1.0f, _currentTrainSpeed);
-            else if (_currentTrainSpeed < -1.0f)
-                _currentTrainSpeed = Mathf.Min(-1.0f, _currentTrainSpeed);
+            if (_currentTrainSpeed > 1.5f)
+            {
+                _currentTrainSpeed -= _trainSpeedMultiplier * _currentInputValue * Time.deltaTime * 2;
+                _currentTrainSpeed = Mathf.Max(1.5f, _currentTrainSpeed);
+            }
+            else if (_currentTrainSpeed < -1.5f)
+            {
+                _currentTrainSpeed -= _trainSpeedMultiplier * _currentInputValue * Time.deltaTime * 2;
+                _currentTrainSpeed = Mathf.Min(-1.5f, _currentTrainSpeed);
+            }
             else
                 _currentTrainSpeed = 0;
-
         }
 
         gameObject.transform.Rotate(Vector3.up, -_currentRotationAngle);

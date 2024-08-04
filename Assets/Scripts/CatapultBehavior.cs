@@ -20,7 +20,7 @@ using System.Collections;
         [Header("Catapult Blend")] [SerializeField]
         private Animator _CatapultAnimator;
         
-
+        private LineRenderer _LineRenderer;
 
         private float _CatapultCharge = 0.0f;
         private float _CatapultChargeTimer = 0.0f;
@@ -34,6 +34,7 @@ using System.Collections;
         private bool _IsCharging = false;
         private float _hAngle = 0.0f;
         private float _vAngle = 0.0f;
+        
 
 
         private void FireProjectile()
@@ -66,6 +67,7 @@ using System.Collections;
         {
             if(!_IsCharging)
             {
+                _LineRenderer.enabled = true;
                 _StartMousePos = Input.mousePosition;
                 _IsCharging = true;
                 _CatapultAnimator.SetTrigger("Start Pull");
@@ -75,6 +77,7 @@ using System.Collections;
                 //Set "EndPull" trigger in animator
                 _CatapultAnimator.SetTrigger("Release");
                 FireProjectile();
+                _LineRenderer.enabled = false;
             }
 
         }
@@ -110,8 +113,12 @@ using System.Collections;
                 Debug.Log("Animation Value: " + animationValue);
                 _CatapultAnimator.SetFloat("Pull Force", animationValue);
                 
-
-                return;
+                if(_LineRenderer != null)
+                {
+                    _LineRenderer.SetPosition(0,_ProjectileSpawn.transform.position);
+                    _LineRenderer.SetPosition(1, _ProjectileSpawn.transform.position + gameObject.transform.forward * 1.5f);
+                }        
+                
             }
 
             Vector2 relativeMousePos = Mouse.current.delta.ReadValue() * _mouseSense;
@@ -140,15 +147,24 @@ using System.Collections;
             {
                 Debug.LogError("Animator is null");
             }
-        
+
+            _LineRenderer = gameObject.GetComponent<LineRenderer>();
+
+            if (_LineRenderer != null)
+            {
+                Color transparentRed = Color.red;
+                transparentRed.a = 0f;
+                _LineRenderer.enabled = false;
+                _LineRenderer.startColor = Color.red;
+                _LineRenderer.endColor = transparentRed;
+                _LineRenderer.startWidth = .5f;
+                _LineRenderer.endWidth = 0f;
+            }
         }
 
         // Update is called once per frame
         void Update()
         {
             Aim();       
-            // test += Time.deltaTime;
-            // _CatapultAnimator.SetFloat("Pull Force", (Mathf.Sin(test) + 1) / 2);
-
         }
     }
