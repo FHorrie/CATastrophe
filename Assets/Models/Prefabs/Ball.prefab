@@ -73,6 +73,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 14dc7ed6082a51c4097c413c3a28f6b6,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 38b5cbe3ab250914b9920a79d7d14e55, type: 2}
     - target: {fileID: 919132149155446097, guid: 14dc7ed6082a51c4097c413c3a28f6b6,
         type: 3}
       propertyPath: m_Name
@@ -155,7 +160,7 @@ MonoBehaviour:
     - floor
     triggerKey: 0
   fractureOptions:
-    fragmentCount: 10
+    fragmentCount: 50
     xAxis: 1
     yAxis: 1
     zAxis: 1
