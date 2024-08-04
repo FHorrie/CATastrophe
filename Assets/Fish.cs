@@ -21,6 +21,7 @@ public class Fish : MonoBehaviour
         String tag = other.gameObject.tag;
         if (tag == "floor" || tag == "Projectile") {
             Destroy(gameObject);
+            GameManager.Instance.HandleFishMurder();
         }
     }
 }
