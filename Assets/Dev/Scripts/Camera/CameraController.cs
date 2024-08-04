@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    private Vector3 m_CamPos = Vector3.zero;
+    [SerializeField] private Transform m_CamPos = null;
     private Vector3 m_Offset = Vector3.zero;
     [SerializeField] private float m_CamDistance = 2f;
     private float m_StendoDistance = 0f;
@@ -22,12 +22,13 @@ public class CameraController : MonoBehaviour
 
     private void Awake()
     {
-        m_CamPos = transform.position;
         m_StendoDistance = m_CamDistance;
     }
 
     private void Start()
     {
+        if(m_CamPos == null)
+            m_CamPos = transform;
         transform.LookAt(m_FallBackTargetTransform);
     }
 
@@ -59,11 +60,14 @@ public class CameraController : MonoBehaviour
         else if (!m_CheckNewTarget)
         {
             m_CheckNewTarget = true;
-            transform.position = m_CamPos;
+            transform.position = m_CamPos.position;
+            transform.rotation = m_CamPos.rotation;
         }
 
         if(m_CheckNewTarget)
         {
+            transform.position = m_CamPos.position;
+            transform.rotation = m_CamPos.rotation;
             var projectile = GameManager.Instance.CurrentProjectile;
 
             if (projectile != null)
@@ -75,7 +79,7 @@ public class CameraController : MonoBehaviour
 
     private void LinkTarget(GameObject projectile)
     {
-        var unitOffset = (m_CamPos - projectile.transform.position).normalized;
+        var unitOffset = (m_CamPos.position - projectile.transform.position).normalized;
         m_Offset = unitOffset * m_CamDistance;
         m_TargetData = projectile.GetComponent<ProjectileData>();
         m_CheckNewTarget = false;
