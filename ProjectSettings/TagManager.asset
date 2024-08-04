@@ -9,6 +9,7 @@ TagManager:
   - floor
   - blokjes
   - catNode
+  - KillBox
   layers:
   - Default
   - TransparentFX

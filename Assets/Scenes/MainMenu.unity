@@ -1855,7 +1855,7 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 1
-  m_Spacing: -284.13
+  m_Spacing: -98.66
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0
@@ -2605,7 +2605,7 @@ MonoBehaviour:
     numFish: 4
   - gameObject: {fileID: 7168252164253427749, guid: ed969eba5720326448ec51f8abcd9844,
       type: 3}
-    numFish: 7
+    numFish: 6
   - gameObject: {fileID: 8243819557719093103, guid: fd21769e37d4706469679114cedebc39,
       type: 3}
     numFish: 9

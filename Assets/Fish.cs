@@ -19,7 +19,7 @@ public class Fish : MonoBehaviour
 
     private void OnCollisionEnter(Collision other) {
         String tag = other.gameObject.tag;
-        if (tag == "floor" || tag == "Projectile") {
+        if (tag == "floor" || tag == "Projectile" || tag == "KillBox") {
             GameManager.Instance.HandleFishMurder();
             Destroy(gameObject);
         }
