@@ -90,6 +90,7 @@ MonoBehaviour:
   _ProjectileSpawn: {fileID: 2081473233000560669}
   _Projectile: {fileID: 3970753905541814388, guid: c0490d42489acb242a48d7c58fcf438e,
     type: 3}
+  _SenditMultiplier: 25
   _CatapultAnimator: {fileID: 8113839518101575148}
 --- !u!1 &1494987595105935094
 GameObject:

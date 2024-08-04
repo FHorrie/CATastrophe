@@ -14,6 +14,8 @@ using System.Collections;
         [SerializeField] private float _maxPullForce = 100.0f;
         [SerializeField] private Transform _ProjectileSpawn;
         [SerializeField] private GameObject _Projectile;
+        
+        [SerializeField] private float _SenditMultiplier = 100.0f;
 
         [Header("Catapult Blend")] [SerializeField]
         private Animator _CatapultAnimator;
@@ -44,7 +46,7 @@ using System.Collections;
 
             if (spawnedRigidbody != null)
             {
-                spawnedRigidbody.AddForce(gameObject.transform.forward * (-1*_MousePosDelta.y) * _baseStrength);
+                spawnedRigidbody.AddForce(gameObject.transform.forward * (_CatapultCharge * _SenditMultiplier) * _baseStrength);
             }
 
             //Debug.Log(_MousePosDelta);
