@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.SceneTemplate;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -9,6 +8,8 @@ public class TrainBehavior : MonoBehaviour
     [SerializeField] private float _trainSpeedMultiplier = 1.0f;
     [SerializeField] private float _maxTrainSpeed = 100.0f;
     [SerializeField] private InputActionReference _TrainMovementAction;
+    
+    [SerializeField] private bool _MainMenu = false;
 
     public bool canMove = true;
 
@@ -41,6 +42,12 @@ public class TrainBehavior : MonoBehaviour
             return;
         }
 
+        if (_MainMenu) { //Force the train to go forward
+            _currentTrainSpeed += _trainSpeedMultiplier * -100 * Time.deltaTime * 1.5f;
+            _currentTrainSpeed = Mathf.Clamp(_currentTrainSpeed, (-_maxTrainSpeed), _maxTrainSpeed);
+            
+        }
+        
         if (_pressed)
         {
             _currentTrainSpeed += _trainSpeedMultiplier * _currentInputValue * Time.deltaTime * 1.5f;
