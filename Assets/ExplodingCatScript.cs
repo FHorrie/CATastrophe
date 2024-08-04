@@ -24,8 +24,9 @@ public class ExplodingCatScript : MonoBehaviour
         String tag = other.gameObject.tag;
         if (tag == "floor" || tag == "blokjes") {
             Instantiate(_explosion, transform.position, Quaternion.identity);
+            gameObject.SetActive(false);
             Kboom();
-            Destroy(gameObject);
+            Destroy(gameObject, 2.5f);
         }
     }
 
