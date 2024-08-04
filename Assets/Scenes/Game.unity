@@ -433,30 +433,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e55e7bfdc8028204ba631f6ec5be69c5, type: 3}
---- !u!1 &202239123 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 91843197485142732, guid: 63c199654eb6f8246b8f3a56f73cce95,
-    type: 3}
-  m_PrefabInstance: {fileID: 256639941}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &202239124
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 202239123}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8aae9546bf56a0147a8958483812f646, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _baseStrength: 1
-  _mouseSense: 0.3
-  _numProjectiles: 5
-  _ProjectileSpawn: {fileID: 1370362273}
-  _Projectile: {fileID: 3970753905541814388, guid: c0490d42489acb242a48d7c58fcf438e,
-    type: 3}
 --- !u!1001 &256639941
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -524,11 +500,7 @@ PrefabInstance:
     - {fileID: 5120080603903980720, guid: 63c199654eb6f8246b8f3a56f73cce95, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 91843197485142732, guid: 63c199654eb6f8246b8f3a56f73cce95,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 202239124}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 63c199654eb6f8246b8f3a56f73cce95, type: 3}
 --- !u!1 &332327993
 GameObject:
@@ -1353,12 +1325,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1154576401}
   m_CullTransparentMesh: 1
---- !u!4 &1370362273 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2081473233000560669, guid: 63c199654eb6f8246b8f3a56f73cce95,
-    type: 3}
-  m_PrefabInstance: {fileID: 256639941}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1505620719
 GameObject:
   m_ObjectHideFlags: 0
@@ -1713,7 +1679,7 @@ Transform:
   m_GameObject: {fileID: 1626856183}
   serializedVersion: 2
   m_LocalRotation: {x: 0.17150886, y: -0, z: -0, w: 0.9851826}
-  m_LocalPosition: {x: 0.84, y: 4.23, z: -14.83}
+  m_LocalPosition: {x: -0.01, y: 1.06, z: -7.24}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

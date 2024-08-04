@@ -11,8 +11,19 @@ using System.Collections;
         [SerializeField] private float _baseStrength = 1.0f;
         [SerializeField] private float _mouseSense = 0.3f;
         [SerializeField] private int _numProjectiles = 5;
+        [SerializeField] private float _maxPullForce = 100.0f;
         [SerializeField] private Transform _ProjectileSpawn;
         [SerializeField] private GameObject _Projectile;
+
+        [Header("Catapult Blend")] [SerializeField]
+        private Animator _CatapultAnimator;
+        
+
+
+        private float _CatapultCharge = 0.0f;
+        private float _CatapultChargeTimer = 0.0f;
+        private bool _CatapultChargeDirection = true;
+
 
     
         private Vector2 _StartMousePos;
@@ -39,6 +50,10 @@ using System.Collections;
             //Debug.Log(_MousePosDelta);
             _MousePosDelta = Vector2.zero;
             _IsCharging = false;
+            _CatapultCharge = 0.0f;
+            _CatapultChargeTimer = 0.0f;
+            _CatapultChargeDirection = true;
+            _CatapultAnimator.SetFloat("Pull Force", 0.0f);
 
             Debug.Log(_hAngle);
             Debug.Log(_vAngle);
@@ -51,9 +66,15 @@ using System.Collections;
             {
                 _StartMousePos = Input.mousePosition;
                 _IsCharging = true;
+                _CatapultAnimator.SetTrigger("Start Pull");
+                Debug.Log("Started Pulling");
             }
-            else
+            else {
+                //Set "EndPull" trigger in animator
+                _CatapultAnimator.SetTrigger("Release");
                 FireProjectile();
+            }
+
         }
 
         private void Aim()
@@ -62,6 +83,31 @@ using System.Collections;
             {
                 Vector2 currentMousePos = Input.mousePosition;
                 _MousePosDelta = currentMousePos - _StartMousePos;
+                
+                //make the current charge go up and down while holding 
+                if (_CatapultChargeDirection)
+                {
+                    _CatapultCharge += Time.deltaTime * _maxPullForce / 2;
+                    if (_CatapultCharge >= _maxPullForce)
+                    {
+                        _CatapultChargeDirection = false;
+                    }
+                }
+                else
+                {
+                    _CatapultCharge -= Time.deltaTime * _maxPullForce / 2;
+                    if (_CatapultCharge <= 0.1) //0.1 cuz animation is weird at 0
+                    {
+                        _CatapultChargeDirection = true;
+                    }
+                }
+                
+                
+                //should be between 0 and 1
+                float animationValue = _CatapultCharge / _maxPullForce;
+                Debug.Log("Animation Value: " + animationValue);
+                _CatapultAnimator.SetFloat("Pull Force", animationValue);
+                
 
                 return;
             }
@@ -88,13 +134,19 @@ using System.Collections;
         // Start is called before the first frame update
         void Start()
         {
-
+            if (_CatapultAnimator == null)
+            {
+                Debug.LogError("Animator is null");
+            }
         
         }
 
         // Update is called once per frame
         void Update()
         {
-            Aim();        
+            Aim();       
+            // test += Time.deltaTime;
+            // _CatapultAnimator.SetFloat("Pull Force", (Mathf.Sin(test) + 1) / 2);
+
         }
     }
