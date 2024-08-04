@@ -1,6 +1,20 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using static GameManager;
+
+[System.Serializable]
+public class Level
+{
+    public GameObject gameObject;
+    public int numFish;
+
+    public Level(GameObject gameObject, int numFish)
+    {
+        this.gameObject = gameObject;
+        this.numFish = numFish;
+    }
+}
 
 public class GameManager : Singleton<GameManager>
 {
@@ -41,54 +55,39 @@ public class GameManager : Singleton<GameManager>
         set { m_CurrentProjectile = value; }
     }
 
-    public struct Level
-    {
-        public string name;
-        public int numFish;
-
-        public Level(string name, int numFish)
-        {
-            this.name = name;
-            this.numFish = numFish;
-        }
-    }
-
-    private List<Level> Levels;
-    private Level CurrentLevel;
+    [SerializeField] private List<Level> Levels;
+    private GameObject CurrentLevel;
+    private int CurrentIndex = 0;
     private int CurrentFish;
-
-    private void Start()
-    {
-        Levels = new List<Level>();
-
-        Levels.Add(new Level("Level_1", 1));
-        Levels.Add(new Level("Level_2", 3));
-        Levels.Add(new Level("Level_3", 4));
-        Levels.Add(new Level("Level_4", 7));
-        Levels.Add(new Level("Level_5", 9));
-
-        CurrentLevel = Levels[0];
-        CurrentFish = CurrentLevel.numFish;
-
-        foreach (var level in Levels)
-        {
-            Debug.Log("Level Name: " + level.name + ", Number of Fish: " + level.numFish);
-        }
-    }
     
     public void HandleFishMurder()
     {
         --CurrentFish;
-        Debug.Log("Current num fish" + CurrentFish);
-
         if (CurrentFish <= 0)
         {
-            Debug.Log("Next level!!!" + CurrentFish);
+            ++CurrentIndex;
+            LoadLevel(CurrentIndex);
         }
     }
 
-    private void Update()
+    public void LoadLevel(int levelIndex)
     {
+        if (levelIndex >= Levels.Count)
+        {
+            levelIndex = 0;
+            SceneManager.LoadScene("MainMenu");
+        }
 
+        if (CurrentLevel != null)
+        {
+            Destroy(CurrentLevel);
+        }
+        CurrentFish = Levels[CurrentIndex].numFish;
+        CurrentLevel = Instantiate(Levels[CurrentIndex].gameObject);
+    }
+
+    public void Default()
+    {
+        CurrentIndex = 0;
     }
 }
