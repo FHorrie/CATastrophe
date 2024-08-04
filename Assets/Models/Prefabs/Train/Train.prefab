@@ -345,6 +345,12 @@ PrefabInstance:
       propertyPath: canMove
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7870758268137194826, guid: 63c199654eb6f8246b8f3a56f73cce95,
+        type: 3}
+      propertyPath: _Projectile
+      value: 
+      objectReference: {fileID: 8426133844364971693, guid: 29406f4a770f9a546ae5dc5bae30bf9c,
+        type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
